@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Empowering The Nation</title>
+    <meta name="description" content="Learn about Empowering The Nation's mission, values, and team dedicated to skills development in South Africa.">
+    <meta name="keywords" content="about us, skills training, empowerment, South Africa, mission, values, team">
+    <meta name="author" content="Empowering The Nation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://empoweringthenation.co.za/about">
+    <meta property="og:title" content="About Us - Empowering The Nation">
+    <meta property="og:description" content="Learn about our mission to empower communities through practical skills training.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="About Us - Empowering The Nation">
+    <meta property="twitter:description" content="Learn about our mission to empower communities through practical skills training.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#28a745',
+                        'primary-dark': '#105720',
+                        accent: '#007bff',
+                        success: '#20c997',
+                        warning: '#ffc107',
+                        error: '#dc3545',
+                        info: '#17a2b8',
+                        dark: {
+                            100: '#1a202c',
+                            200: '#2d3748',
+                            300: '#4a5568',
+                            400: '#718096'
+                        }
+                    },
+                    fontFamily: {
+                        'display': ['serif'],
+                        'body': ['system-ui', 'sans-serif']
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem'
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    <style>
+        /* Custom animations and styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: #28a745;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #1e7e34;
+            transform: translateY(-1px);
+        }
+        
+        /* Focus styles for accessibility */
+        .focus-ring:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+        
+        /* Mobile navigation */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        /* Dark mode transitions */
+        .dark-mode-transition {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        /* Dark mode toggle switch */
+        .theme-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        
+        .theme-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #28a745;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(30px);
+        }
+        
+        /* Image hover effects */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        
+        .img-hover-zoom img {
+            transition: transform 0.5s ease;
+        }
+        
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* About page specific styles */
+        .team-member {
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .value-card {
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto;
+            border-radius: 50%;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #28a745;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #28a745;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #28a745;
+        }
+        
+        .dark .timeline-item::before {
+            border: 4px solid #1a202c;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-body dark-mode-transition">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent text-white px-4 py-2 rounded z-50">Skip to content</a>
+    
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-40">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <img src="_images/logo/Logo.jpeg" alt="Empowering The Nation Logo" class="h-16 w-auto rounded-md">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:text-primary focus-ring">Home</a>
+                        <a href="courses.html" class="px-3 py-2 rounded-md text-sm font-medium hover:text-primary focus-ring">Courses</a>
+                        <a href="pricing.html" class="px-3 py-2 rounded-md text-sm font-medium hover:text-primary focus-ring">Pricing</a>
+                        <a href="about.html" class="px-3 py-2 rounded-md text-sm font-medium text-primary font-semibold focus-ring">About</a>
+                        <a href="blog.html" class="px-3 py-2 rounded-md text-sm font-medium hover:text-primary focus-ring">Blog</a>
+                        <a href="contact.html" class="px-3 py-2 rounded-md text-sm font-medium hover:text-primary focus-ring">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Dark mode toggle -->
+                    <div class="flex items-center mr-4">
+                        <span class="mr-2 text-sm"><i class="fas fa-sun"></i></span>
+                        <label class="theme-toggle">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="ml-2 text-sm"><i class="fas fa-moon"></i></span>
+                    </div>
+                    <a href="enroll.html" class="btn-secondary text-white px-4 py-2 rounded-md text-sm font-medium focus-ring">Enroll Now</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <!-- Dark mode toggle for mobile -->
+                    <div class="flex items-center mr-4">
+                        <label class="theme-toggle">
+                            <input type="checkbox" id="dark-mode-toggle-mobile">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-primary focus-ring p-2" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-white dark:bg-gray-800 shadow-xl z-50">
+            <div class="flex items-center justify-between p-4 border-b">
+                <h2 class="text-lg font-semibold text-primary">Menu</h2>
+                <button onclick="toggleMobileMenu()" class="text-gray-500 hover:text-primary focus-ring p-2" aria-label="Close menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="p-4 space-y-4">
+                <a href="index.html" class="block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus-ring">Home</a>
+                <a href="courses.html" class="block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus-ring">Courses</a>
+                <a href="pricing.html" class="block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus-ring">Pricing</a>
+                <a href="about.html" class="block w-full text-left px-3 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-primary font-semibold focus-ring">About</a>
+                <a href="blog.html" class="block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus-ring">Blog</a>
+                <a href="contact.html" class="block w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus-ring">Contact</a>
+                <div class="pt-4 space-y-2">
+                    <a href="enroll.html" class="block w-full btn-secondary text-white px-4 py-2 rounded-md text-sm font-medium focus-ring">Enroll Now</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile menu overlay -->
+    <div id="mobile-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" onclick="toggleMobileMenu()"></div>
+    
+    <!-- Main Content -->
+    <main id="main-content" class="min-h-screen">
+        <!-- Hero Section -->
+        <div class="hero-gradient text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up">Our Story</h1>
+                <p class="text-xl max-w-3xl mx-auto animate-fade-in-up">Empowering the Nation through Skills Development</p>
+            </div>
+        </div>
+        
+        <!-- Mission Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">Our Mission</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-center max-w-4xl mx-auto">
+                    We were founded to unlock opportunity for domestic workers and gardeners by providing them with practical skills training that directly translates to better employment prospects and entrepreneurial opportunities. Our programs are designed with real-world application in mind, ensuring that every graduate leaves with skills that matter in today's job market.
+                </p>
+            </div>
+        </div>
+        
+        <!-- History Timeline -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-3xl font-bold mb-12 text-center">Our Journey</h2>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <span class="text-primary font-semibold">2015</span>
+                        <h3 class="text-xl font-semibold mt-2">Foundation</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Empowering The Nation was founded with a vision to provide practical skills training to underserved communities.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <span class="text-primary font-semibold">2016</span>
+                        <h3 class="text-xl font-semibold mt-2">First Accreditation</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Received SAQA accreditation for our First Aid and Sewing programs, marking a significant milestone in our journey.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <span class="text-primary font-semibold">2018</span>
+                        <h3 class="text-xl font-semibold mt-2">Expansion</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Expanded our course offerings to include Landscaping, Child Minding, and Life Skills programs.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <span class="text-primary font-semibold">2020</span>
+                        <h3 class="text-xl font-semibold mt-2">1000+ Graduates</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Celebrated our 1000th graduate, a major milestone in our mission to empower communities through skills development.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <span class="text-primary font-semibold">2023</span>
+                        <h3 class="text-xl font-semibold mt-2">New Facilities</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">Opened new training facilities in Johannesburg, allowing us to serve more students with enhanced resources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Values Section -->
+        <div class="bg-gray-100 dark:bg-gray-800 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center">Our Values</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Value 1 -->
+                    <div class="value-card bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+                        <div class="value-icon bg-primary text-white mb-4">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Accessibility</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Making quality education available to everyone regardless of background or financial means.</p>
+                    </div>
+                    
+                    <!-- Value 2 -->
+                    <div class="value-card bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+                        <div class="value-icon bg-primary text-white mb-4">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Practicality</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Focusing on skills that work in the real world and directly improve employment prospects.</p>
+                    </div>
+                    
+                    <!-- Value 3 -->
+                    <div class="value-card bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+                        <div class="value-icon bg-primary text-white mb-4">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Dignity</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Respecting every learner's journey and recognizing the value each person brings.</p>
+                    </div>
+                    
+                    <!-- Value 4 -->
+                    <div class="value-card bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+                        <div class="value-icon bg-primary text-white mb-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Community</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Building stronger communities through collaboration and shared success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accreditation Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-3xl font-bold mb-12 text-center">Accreditation & Partners</h2>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <!-- Accreditation 1 -->
+                    <div>
+                        <div class="text-4xl mb-4 text-primary">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">SAQA Accredited</h3>
+                        <p class="text-gray-600 dark:text-gray-400">All our qualifications are recognized by the South African Qualifications Authority</p>
+                    </div>
+                    
+                    <!-- Accreditation 2 -->
+                    <div>
+                        <div class="text-4xl mb-4 text-primary">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Industry Partners</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Working with leading employers to ensure relevant, up-to-date training</p>
+                    </div>
+                    
+                    <!-- Accreditation 3 -->
+                    <div>
+                        <div class="text-4xl mb-4 text-primary">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Certified Training</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Graduates receive nationally recognized certificates</p>
+                    </div>
+                </div>
+                
+                <!-- Partner Logos -->
+                <div class="mt-12">
+                    <h3 class="text-xl font-semibold mb-8 text-center">Our Trusted Partners</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                        <div class="img-hover-zoom">
+                            <img src="_images/screens/P1.jpg" alt="Partner 1" class="w-full rounded-lg">
+                        </div>
+                        <div class="img-hover-zoom">
+                            <img src="_images/screens/P2.jpg" alt="Partner 2" class="w-full rounded-lg">
+                        </div>
+                        <div class="img-hover-zoom">
+                            <img src="_images/screens/P3.jpg" alt="Partner 3" class="w-full rounded-lg">
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Team Section -->
+        <div class="bg-gray-100 dark:bg-gray-800 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center">Leadership Team</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="team-member bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+                        <div class="w-32 h-32 bg-primary text-white rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Vishay Gosai</h3>
+                        <p class="text-primary font-medium mb-2">Founder & CEO</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Former domestic worker turned entrepreneur, passionate about skills development and community empowerment.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="Email contact"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 2 -->
+                    <div class="team-member bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+                        <div class="w-32 h-32 bg-primary text-white rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Kemotheo Tlhale</h3>
+                        <p class="text-primary font-medium mb-2">Head of Training</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">20 years experience in vocational education and curriculum development. Passionate about practical skills training.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="Email contact"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Member 3 -->
+                    <div class="team-member bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+                        <div class="w-32 h-32 bg-primary text-white rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Joshua Zulu</h3>
+                        <p class="text-primary font-medium mb-2">Director of Operations</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Expert in scaling educational programs and learner support systems. Focused on creating efficient processes.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-primary focus-ring" aria-label="Email contact"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Impact Stats -->
+        <div class="bg-primary text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center">Our Impact</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-4xl font-bold mb-2">1,200+</div>
+                        <div class="text-lg">Learners Trained</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">92%</div>
+                        <div class="text-lg">Satisfaction Rate</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">18%</div>
+                        <div class="text-lg">Avg. Wage Uplift</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">500+</div>
+                        <div class="text-lg">Job Placements</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="bg-white dark:bg-gray-800 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-6">Join Our Mission</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">Be part of our journey to empower communities through practical skills training</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors focus-ring inline-block">Contact Us</a>
+                    <a href="enroll.html" class="bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors focus-ring inline-block">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-display font-bold text-primary mb-4">Empowering The Nation</h3>
+                    <p class="text-gray-300 mb-4">Uplifting communities through practical skills and accredited training.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="courses.html" class="text-gray-300 hover:text-primary transition-colors">Courses</a></li>
+                        <li><a href="pricing.html" class="text-gray-300 hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-primary transition-colors text-primary font-semibold">About</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-envelope mr-2"></i> info@empoweringthenation.co.za</li>
+                        <li><i class="fas fa-phone mr-2"></i> 011 123 4567</li>
+                        <li><i class="fab fa-whatsapp mr-2"></i> 082 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> 123 Skills Street<br>&nbsp;&nbsp;&nbsp;&nbsp;Johannesburg, 2000</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-8 border-gray-700">
+            
+            <!-- Bottom Bar -->
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-400 text-sm">
+                    © 2024 Empowering The Nation. All rights reserved.
+                </div>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Terms</a>
+                    <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Privacy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary text-sm transition-colors">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success/Error Notifications -->
+    <div id="notification" class="fixed top-4 right-4 z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 max-w-sm">
+            <div class="flex items-center">
+                <div id="notification-icon" class="mr-3"></div>
+                <div>
+                    <div id="notification-title" class="font-semibold"></div>
+                    <div id="notification-message" class="text-sm text-gray-600 dark:text-gray-400"></div>
+                </div>
+                <button onclick="hideNotification()" class="ml-4 text-gray-400 hover:text-gray-600" aria-label="Close notification" title="Close notification">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Dark mode functionality
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeToggleMobile = document.getElementById('dark-mode-toggle-mobile');
+        
+        // Check for saved theme preference or respect OS preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('darkMode'))) {
+            document.documentElement.classList.add('dark');
+            if (darkModeToggle) darkModeToggle.checked = true;
+            if (darkModeToggleMobile) darkModeToggleMobile.checked = true;
+        }
+        
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', isDark);
+            if (darkModeToggle) darkModeToggle.checked = isDark;
+            if (darkModeToggleMobile) darkModeToggleMobile.checked = isDark;
+        }
+        
+        // Add event listeners to both toggles
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+        if (darkModeToggleMobile) {
+            darkModeToggleMobile.addEventListener('change', toggleDarkMode);
+        }
+        
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-overlay');
+            
+            if (menu.classList.contains('open')) {
+                menu.classList.remove('open');
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            } else {
+                menu.classList.add('open');
+                overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        // Timeline animation
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const windowHeight = window.innerHeight;
+            
+            timelineItems.forEach(item => {
+                const position = item.getBoundingClientRect().top;
+                
+                if (position < windowHeight * 0.85) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu.classList.contains('open')) {
+                        toggleMobileMenu();
+                    }
+                    hideNotification();
+                }
+            });
+            
+            // Initialize timeline animation
+            window.addEventListener('scroll', animateTimeline);
+            animateTimeline(); // Trigger once on load
+        });
+        
+        // Notification functions
+        function showNotification(type, title, message) {
+            const notification = document.getElementById('notification');
+            const icon = document.getElementById('notification-icon');
+            const titleEl = document.getElementById('notification-title');
+            const messageEl = document.getElementById('notification-message');
+            
+            // Set icon based on type
+            const icons = {
+                success: '<div class="w-6 h-6 bg-success text-white rounded-full flex items-center justify-center text-sm"><i class="fas fa-check"></i></div>',
+                error: '<div class="w-6 h-6 bg-error text-white rounded-full flex items-center justify-center text-sm"><i class="fas fa-times"></i></div>',
+                info: '<div class="w-6 h-6 bg-info text-white rounded-full flex items-center justify-center text-sm"><i class="fas fa-info"></i></div>',
+                warning: '<div class="w-6 h-6 bg-warning text-white rounded-full flex items-center justify-center text-sm"><i class="fas fa-exclamation"></i></div>'
+            };
+            
+            icon.innerHTML = icons[type] || icons.info;
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+            
+            notification.classList.remove('hidden');
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                hideNotification();
+            }, 5000);
+        }
+        
+        function hideNotification() {
+            document.getElementById('notification').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
